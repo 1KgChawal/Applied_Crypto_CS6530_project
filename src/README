@@ -1,0 +1,98 @@
+# RSA Cryptography Implementation
+
+This contains my library implementation for RSA encryption and signing, including OAEP padding and ISO 9796-2 signature scheme
+
+## Libraries
+
+### RSA Library
+This library provides functionalities for RSA encryption, decryption, signing, and signature verification and it includes implementations for OAEP padding
+
+**Features:**
+- RSA key generation
+- RSA encryption and decryption
+- OAEP padding and unpadding
+- RSA signing and signature verification
+
+### ISO 9796-2 Library
+This library provides functionalities for RSA signing and signature verification using the ISO/IEC 9796-2 standard
+
+**Features:**
+- RSA signing using ISO/IEC 9796-2
+- RSA signature verification using ISO/IEC 9796-2
+
+### Maths Library
+This library provides mathematical functions used in RSA operations
+
+**Features:**
+- Modular exponentiation
+- Primality testing
+- Extended Euclidean algorithm
+- Prime number generation
+- Modular inverse calculation
+- GCD calculation
+- Least common multiple calculation
+- Random number generation
+
+## Prerequisites
+
+**Operating System:** Linux (tested on Linux Mint 21.3/Ubuntu 22.04) or other Unix-like systems
+
+**Required Dependencies:**
+- clang++ - C++ compiler with C++17 support
+- libgmp-dev - GNU Multiple Precision Arithmetic Library
+- libgmpxx - C++ bindings for GMP
+- libssl-dev - OpenSSL cryptographic library
+
+## Building the Project
+
+The project uses a Makefile-based build system with the following targets:
+
+**Build all executables:**
+$ make all
+
+or simply:
+$ make
+
+
+This compiles the library objects into the build/ directory and generates two test executables: rsa_test and iso_9796_2_test.
+
+**Build library objects only:**
+$ make build_lib
+
+
+**Clean build artifacts:**
+$ make clean
+
+
+Removes all executables, object files, and generated key files (*.key, *.pem).
+
+**Rebuild from scratch:**
+$ make re_build
+
+Equivalent to running make clean followed by make all.
+
+**Rebuild library only:**
+$ make re_build_lib
+
+## Running the Tests
+
+After building, execute the test programs:
+
+**RSA Encryption/Decryption Test:**
+$ ./rsa_test
+
+Tests key generation, OAEP encryption/decryption, and digital signatures.
+
+**ISO 9796-2 Signature Test:**
+$ ./iso_9796_2_test
+
+Tests signature generation with message recovery and verification.
+
+## Compilation Details
+
+**Compiler:** Clang++ (C++17)  
+**Optimization:** -O3 (maximum performance)  
+**Linked Libraries:** 
+- -lgmp (GNU Multiple Precision Arithmetic)
+- -lgmpxx (GMP C++ bindings)
+- -lcrypto (OpenSSL cryptographic functions)
